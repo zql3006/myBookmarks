@@ -10,24 +10,26 @@
   if(hashInlocalStorage) hash=hashInlocalStorage
   index=0
   while(index<keys['length']){
-    divXXXXX=document.createElement('div')
-    mainXXXXX.appendChild(divXXXXX)
+    div=document.createElement('div')
+    div.className='row'
+    main.appendChild(div)
     row=keys[index]
     index2=0
     while(index2<row['length']){
-      kbdXXXXX=document.createElement('kbd')
-      kbdXXXXX.textContent=row[index2]
-      buttonX=document.createElement('button')
-      buttonX.textContent='编辑'
-      buttonX.id=row[index2]
-      buttonX.onclick=function(zz){
+      kbd=document.createElement('kbd')
+      kbd.textContent=row[index2]
+      kbd.className='key'
+      button=document.createElement('button')
+      button.textContent='编辑'
+      button.id=row[index2]
+      button.onclick=function(zz){
         key=zz['target']['id']
         x=prompt('给我一个网址')
         hash[key]=x
         localStorage.setItem('xx',JSON.stringify(hash))
       }
-      kbdXXXXX.appendChild(buttonX)
-      divXXXXX.appendChild(kbdXXXXX)
+      kbd.appendChild(button)
+      div.appendChild(kbd)
       index2=index2+1
     }
     index=index+1
